@@ -90,10 +90,12 @@ expedition.prototype.get = function() {
     serviceCode: this.serviceCode,
     labelFormat: this.labelFormat,
     quantity: this.parcelsRequest.length,
-    parcelsRequest: []
+    parcelsRequest: {
+      parcelRequest: []
+    }
   };
   this.parcelsRequest.forEach(function(parcelRequest) {
-    exp.parcelsRequest.push({ parcelRequest: parcelRequest.get() });
+    exp.parcelsRequest.parcelRequest.push(parcelRequest.get());
   });
   if (this.pickUpRequest) {
     exp.pickUpRequest = this.pickUpRequest.get();
